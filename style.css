@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  color: #f0f0f0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #0b0d15;
+  color: #a2a5b3;
+  user-select: none;
+}
+
+#box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+  padding: 2em;
+  width: 400px;
+  height: 600px;
+  background: #14161f;
+  border-radius: 20px;
+  position: relative;
+}
+
+.box1::after,
+.box1::before,
+.box2::after,
+.box2::before,
+.box3::after,
+.box3::before {
+  content: '';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  padding: 3px;
+  border-radius: 20px;
+  animation: 5s spin linear infinite;
+}
+
+.box1::before {
+  filter: blur(1.5rem);
+  opacity: 0.5;
+}
+
+.box1::after,
+.box1::before {
+  background: conic-gradient(from var(--angle), #ff4545, #00ff99, #006aff, #ff0095, #ff4545);
+}
+
+.box2::before {
+  filter: blur(0.5rem);
+}
+
+.box2::after,
+.box2::before {
+  background: conic-gradient(from var(--angle), transparent 50% , blue);
+}
+
+.box3::before {
+  background: repeating-conic-gradient(from var(--angle), #ff0095 0%, #ff0095 5%,
+  transparent 5%, transparent 40%, #ff0095 50%);
+  filter: blur(0.1rem);
+}
+
+.box3::after {
+  background: repeating-conic-gradient(from var(--angle), #006aff 0%, #006aff 5%,
+  transparent 5%, transparent 40%, #006aff 50%);
+  filter: blur(0.1rem);
+  animation-delay: -1.3s;
+}
+
+h2 {
+  color: #f0f0f0;
+  font-size: 4em;
+}
+
+.switch-animation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.5em;
+}
+
+.switch-animation>button {
+  outline-color: transparent;
+  width: 5em;
+  height: 2em;
+  margin: 10px;
+  background-color: #14161f;
+  border: 2px solid;
+  border-radius: 30px;
+  border-color: #0b0d15;
+  font-size: 20px;
+  color: #a2a5b3;
+}
+
+.switch-animation>button:hover {
+  border-color: aqua;
+  color: aqua;
+  opacity: 70%;
+}
+
+.switch-animation>button:active {
+  border-color: #14161f;
+  color: #a2a5b3;
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes spin {
+  from {
+    --angle: 0deg;
+  }
+
+  to {
+    --angle: 360deg;
+  }
+}
